@@ -1,0 +1,61 @@
+<script>
+import axios from "axios";
+import { store } from "../store";
+import AppSearch from "./AppSearch.vue";
+
+export default {
+    components: {AppSearch},
+    data() {
+        return{
+            store,
+        }
+    },
+
+    methods : {
+        searchName() {
+
+            axios
+            .get("https://api.themoviedb.org/3/search/movie", {
+                params: {
+                    api_key: '80af501ae1f07a940be7e96db3c882a1',
+                    query: store.searchText,
+                    language: "it-IT",
+                }
+            })
+            .then((resp) => {
+                store.filmList = [];
+                store.filmList = resp.data.results;
+                console.log(resp.data.results)
+            })
+
+            axios
+            .get("https://api.themoviedb.org/3/search/tv", {
+                params: {
+                    api_key: '80af501ae1f07a940be7e96db3c882a1',
+                    query: store.searchText,
+                    language: "it-IT",
+                }
+            })
+            .then((resp2) => {
+                store.seriesList = [],
+                store.seriesList = resp2.data.results;
+                console.log(resp2.data.results)
+            })
+
+        }   
+    }
+
+
+}
+
+
+</script>
+
+
+<template>
+    <AppSearch @performSearch="searchName"/>
+</template>
+
+<style lang="scss" scoped>
+    
+</style>
