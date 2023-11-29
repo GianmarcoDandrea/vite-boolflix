@@ -17,8 +17,12 @@ export default {
       placeholder="Cerca "
       v-model.trim="store.searchText"
     />
-    <button @click="$emit('performSearch')" class="btn btn-primary">Cerca</button>
+    <button @click="$emit('performSearch')" class="btn btn-danger">Cerca</button>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn {
+  margin-left: 0.5rem;
+}
+</style>

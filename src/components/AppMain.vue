@@ -1,6 +1,7 @@
 <script>
 import AppCard from "./AppCard.vue";
 import AppLoader from "./AppLoader.vue";
+import AppFilter from "./AppFilter.vue";
 import { store } from "../store";
 export default {
     data() {
@@ -8,7 +9,7 @@ export default {
             store,
         }
     },
-    components : {AppCard, AppLoader},
+    components : {AppCard, AppLoader, AppFilter},
 }
 </script>
 
@@ -27,8 +28,8 @@ export default {
             <!-- Film Container -->
             <section v-show="store.filmList.length > 0">
                 <h2 class="text-center text-danger">Film</h2>
-                <div class="row row-cols-5 g-3 align-items-stretch">
-                    <div class="col" v-for="film in store.filmList">
+                <div class="row row-cols-5 g-3">
+                    <div class="col " v-for="film in store.filmList">
                         <AppCard :details="film" />
                     </div>
                 </div>
@@ -52,8 +53,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.col {
-    height: 100%;
+.row {
     align-items: stretch;
 }
 
