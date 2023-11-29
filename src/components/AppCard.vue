@@ -1,13 +1,14 @@
 <script>
 import { store } from "../store";
 import LanguageFlag from 'vue-lang-code-flags';
+import { MDBIcon } from 'mdb-vue-ui-kit';
 
 export default {
         props: {
             details: Object,
         },
 
-        components: { LanguageFlag },
+        components: { LanguageFlag, MDBIcon },
 
         data() {
             return {
@@ -34,7 +35,8 @@ export default {
 
 <template>
     <div class="card position-relative">
-        <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="poster rounded-2">
+        <img src="../assets/img/Poster_not_available.jpg" alt="poster not avaible" v-if="details.poster_path === null">
+        <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="poster rounded-2" v-else>
 
         <div class="card-details position-absolute">
             <div class="title">
@@ -49,6 +51,7 @@ export default {
             <div>
                 <span>Lingua:</span>
                 <LanguageFlag :iso="getLanguage" class="flag"/>
+                <!-- <MDBIcon flag="getLanguage" /> -->
     
             </div>
             <div>

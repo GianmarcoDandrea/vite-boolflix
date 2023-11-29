@@ -1,7 +1,6 @@
 <script>
 import AppCard from "./AppCard.vue";
 import AppLoader from "./AppLoader.vue";
-import AppFilter from "./AppFilter.vue";
 import { store } from "../store";
 export default {
     data() {
@@ -9,7 +8,7 @@ export default {
             store,
         }
     },
-    components : {AppCard, AppLoader, AppFilter},
+    components : {AppCard, AppLoader},
 }
 </script>
 
