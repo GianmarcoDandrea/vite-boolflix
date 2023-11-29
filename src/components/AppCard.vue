@@ -43,7 +43,15 @@ export default {
             <Language :iso="getLanguage" />
 
         </div>
-        <span class="vote">Voto: {{ getVoted }}</span>
+        <div>
+
+            <span>Voto: </span>
+            <span v-for="vote in 5">
+                <i class="fa-solid fa-star" v-if="getVoted >= vote"></i>
+                <i class="fa-regular fa-star" v-else="getVoted = 0"></i>
+            </span>
+
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
