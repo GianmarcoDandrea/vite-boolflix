@@ -1,5 +1,6 @@
 <script>
 import AppCard from "./AppCard.vue";
+import AppLoader from "./AppLoader.vue";
 import { store } from "../store";
 export default {
     data() {
@@ -7,13 +8,16 @@ export default {
             store,
         }
     },
-    components : {AppCard},
+    components : {AppCard, AppLoader},
 }
 </script>
 
 
 <template>
-    <div class="container">
+    <div class="container" v-if="store.loading">
+        <AppLoader />
+    </div>
+    <div class="container" v-else>
         <section v-if="store.filmList.length === 0 && store.seriesList.length === 0 ">
             Cerca i tuoi film e le tue serie preferite
         </section>
@@ -48,5 +52,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.col {
+    height: 100%;
+    align-items: stretch;
+}
+
     
 </style>

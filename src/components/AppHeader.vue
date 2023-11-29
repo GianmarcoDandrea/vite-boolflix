@@ -13,7 +13,7 @@ export default {
 
     methods : {
         searchName() {
-
+            this.store.loading = true;
             axios
             .get("https://api.themoviedb.org/3/search/movie", {
                 params: {
@@ -23,9 +23,11 @@ export default {
                 }
             })
             .then((resp) => {
+                
                 store.filmList = [];
                 store.filmList = resp.data.results;
-                console.log(resp.data.results)
+                console.log(resp.data.results);
+                this.store.loading = false;
             })
 
             axios
@@ -37,9 +39,10 @@ export default {
                 }
             })
             .then((resp2) => {
-                store.seriesList = [],
+                store.seriesList = [];
                 store.seriesList = resp2.data.results;
-                console.log(resp2.data.results)
+                console.log(resp2.data.results);
+                this.store.loading = false;
             })
 
         }   

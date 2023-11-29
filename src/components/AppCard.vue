@@ -1,10 +1,13 @@
 <script>
 import { store } from "../store";
+import LanguageFlag from 'vue-lang-code-flags';
 
 export default {
         props: {
             details: Object,
         },
+
+        components: { LanguageFlag },
 
         data() {
             return {
@@ -31,10 +34,15 @@ export default {
 
 <template>
     <div class="card">
-
+        <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="rounded-2">
         <span class="title">Titolo: <br>{{ getName }}</span>
         <span class="original-title">Titolo Originale: <br>{{ getOriginalName }}</span>
-        <span class="original-language">Lingua Originale:{{ getLanguage }}</span>
+        <div>
+            <span>Lingua:</span>
+            <br>
+            <Language :iso="getLanguage" />
+
+        </div>
         <span class="vote">Voto: {{ getVoted }}</span>
     </div>
 </template>
