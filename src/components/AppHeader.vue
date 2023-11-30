@@ -56,8 +56,8 @@ export default {
 
 
 <template>
-    <header>
-        <div class="container d-flex justify-content-between align-items-center py-2">
+    <header class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
             <h2 class="logo text-red fw-bold">BOOLFLIX</h2>
             <AppSearch @performSearch="searchName"/>
         </div>
@@ -68,7 +68,8 @@ export default {
 @use "../style/partials/variables" as *;
 
 header {
-    background-color: #1b1b1b;
+    height: $header-height;
+    background-color: $header-bg-color;
     .logo {
         font-size: 4rem;
     }

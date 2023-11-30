@@ -1,2 +1,8 @@
 // color
 $primary-red :#DB202C;
+$header-bg-color: #1b1b1b;
+$main-bg-color: #2d2d2d;
+
+// height
+$header-height: 12vh;
+$main-height: calc(100vh - $header-height);
