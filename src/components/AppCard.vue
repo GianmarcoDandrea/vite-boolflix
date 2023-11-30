@@ -1,14 +1,13 @@
 <script>
 import { store } from "../store";
 import LanguageFlag from 'vue-lang-code-flags';
-import { MDBIcon } from 'mdb-vue-ui-kit';
 
 export default {
         props: {
             details: Object,
         },
 
-        components: { LanguageFlag, MDBIcon },
+        components: { LanguageFlag},
 
         data() {
             return {
@@ -39,28 +38,39 @@ export default {
         <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="poster rounded-2" v-else>
 
         <div class="card-details position-absolute">
+            <!-- title -->
             <div class="title">
                 <span>Titolo:</span>
                 <p>{{ getName }}</p>
             </div>
+
+            <!-- original title -->
             <div class="original-title">
                 <span>Titolo:</span>
                 <p>{{ getOriginalName }}</p>
 
             </div>
+
+            <!-- language -->
             <div>
                 <span>Lingua:</span>
                 <LanguageFlag :iso="getLanguage" class="flag"/>
-                <!-- <MDBIcon flag="getLanguage" /> -->
-    
             </div>
+
+            <!-- vote -->
             <div>
                 <span>Voto: </span>
                 <span v-for="vote in 5">
                     <i class="fa-solid fa-star" v-if="getVoted >= vote"></i>
                     <i class="fa-regular fa-star" v-else></i>
                 </span>
-    
+            </div>
+
+            <!-- plot -->
+            <div class="original-title">
+                <span>Trama</span>
+                <p>{{ details.overview }}</p>
+
             </div>
         </div>
     </div>
@@ -91,7 +101,9 @@ export default {
             }
     
             .flag {
-                margin-left: 1rem;
+                margin-left: 0.5rem;
+                width: 20px;
+                height: 15px;
             }
         }
     }

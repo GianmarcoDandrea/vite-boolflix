@@ -8,3 +8,20 @@
 img {
     max-width: 100%;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #252525; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #646464;
+}
