@@ -56,13 +56,23 @@ export default {
 
 
 <template>
-
-    <div class="container d-flex justify-content-between align-items-center py-2">
-        <h1>BOOLFLIX</h1>
-        <AppSearch @performSearch="searchName"/>
-    </div>
+    <header>
+        <div class="container d-flex justify-content-between align-items-center py-2">
+            <h2 class="logo text-red fw-bold">BOOLFLIX</h2>
+            <AppSearch @performSearch="searchName"/>
+        </div>
+    </header>
 </template>
 
 <style lang="scss" scoped>
+@use "../style/partials/variables" as *;
+
+header {
+    background-color: #1b1b1b;
+    .logo {
+        font-size: 4rem;
+    }
+}
+
     
 </style>

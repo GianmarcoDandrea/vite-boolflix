@@ -26,7 +26,7 @@ export default {
             
             <!-- Film Container -->
             <section v-show="store.filmList.length > 0">
-                <h2 class="text-center text-danger">Film</h2>
+                <h2 class="text-center text-red ">Film</h2>
                 <div class="row row-cols-5 g-3">
                     <div class="col " v-for="film in store.filmList">
                         <AppCard :details="film" />
@@ -36,8 +36,8 @@ export default {
 
             <!-- TV Series Container -->
             <section v-show="store.seriesList.length > 0">
-                <h2 class="text-center text-danger">Serie TV</h2>
-                <div class="row row-cols-5 g-3 ">
+                <h2 class="text-center text-red">Serie TV</h2>
+                <div class="row row-cols-5 g-3">
                     <div class="col" v-for="serie in store.seriesList">
                         <AppCard :details="serie" />
                     </div>
@@ -52,8 +52,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../style/partials/variables" as *;
+
+.text-red {
+    font-size: 3rem;
+}
 .row {
     align-items: stretch;
+    margin-bottom: 2rem;
 }
 
     

@@ -1,4 +1,6 @@
 @import "bootstrap/scss/bootstrap.scss";
+@import "./partials//variables";
+
 * {
     padding: 0;
     margin: 0;
@@ -7,6 +9,11 @@
 
 img {
     max-width: 100%;
+}
+
+// FONT
+.text-red {
+    color: $primary-red;
 }
 
 

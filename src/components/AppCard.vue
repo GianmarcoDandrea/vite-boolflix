@@ -76,6 +76,7 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
+@use "../style/partials/variables" as *;
     .card {
         height: 100%;
         border: none;

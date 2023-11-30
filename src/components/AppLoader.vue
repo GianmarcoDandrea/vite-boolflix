@@ -7,11 +7,12 @@ export default {
 <template>
     <div class="wrapper">
         <img class="image" src="../assets/img/loading.svg" alt="">
-        <h3>Loading...</h3>
+        <h3 class="text-red">Loading...</h3>
     </div>
 </template>
 
 <style lang="scss" scoped>
+@use "../style/partials/variables" as *;
 
 .wrapper {
     width: 100%;
