@@ -16,6 +16,7 @@ export default {
       class="form-control"
       placeholder="Cerca "
       v-model.trim="store.searchText"
+      @keyup.enter="$emit('performSearch')"
     />
     <button @click="$emit('performSearch')" class="btn btn-danger">Cerca</button>
   </div>

@@ -56,7 +56,11 @@ export default {
 
 
 <template>
-    <AppSearch @performSearch="searchName"/>
+
+    <div class="container d-flex justify-content-between align-items-center py-2">
+        <h1>BOOLFLIX</h1>
+        <AppSearch @performSearch="searchName"/>
+    </div>
 </template>
 
 <style lang="scss" scoped>
