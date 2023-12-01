@@ -37,29 +37,31 @@ export default {
         <img src="../assets/img/Poster_not_available.jpg" alt="poster not avaible" v-if="details.poster_path === null">
         <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="poster rounded-2" v-else>
 
-        <div class="card-details position-absolute">
+        <div class="card-details position-absolute rounded-2">
             <!-- title -->
-            <div class="title">
-                <span>Titolo:</span>
-                <p>{{ getName }}</p>
+            <div class="title mb-1">
+                <span class="fs-4 text-red">Titolo:</span>
+                <br>
+                <span>{{ getName }}</span>
             </div>
 
             <!-- original title -->
-            <div class="original-title">
-                <span>Titolo:</span>
-                <p>{{ getOriginalName }}</p>
+            <div class="original-title mb-1 ">
+                <span class="fs-4 text-red">Titolo:</span>
+                <br>
+                <span>{{ getOriginalName }}</span>
 
             </div>
 
             <!-- language -->
-            <div>
-                <span>Lingua:</span>
+            <!-- <div class="">
+                <span class="fs-4">Lingua:</span>
                 <LanguageFlag :iso="getLanguage" class="flag"/>
-            </div>
+            </div> -->
 
             <!-- vote -->
             <div>
-                <span>Voto: </span>
+                <span class="fs-4 text-red">Voto: </span>
                 <span v-for="vote in 5">
                     <i class="fa-solid fa-star" v-if="getVoted >= vote"></i>
                     <i class="fa-regular fa-star" v-else></i>
@@ -67,8 +69,8 @@ export default {
             </div>
 
             <!-- plot -->
-            <div class="original-title">
-                <span>Trama</span>
+            <div class="overview">
+                <span class="fs-4 text-red">Trama</span>
                 <p>{{ details.overview }}</p>
 
             </div>
@@ -77,14 +79,20 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
+
+    .text-red {
+        color: $primary-red;
+    }
     .card {
         height: 100%;
         border: none;
+        
         .poster {
         height: 100%;
         }
         .card-details{
-            opacity: 0;
+            opacity: 0.9;
+            display: none;
             padding: 1rem;
             color: white;
             background-color: black;
@@ -94,12 +102,6 @@ export default {
             left: 0;
             transition: all 1s;
             overflow-y: auto;
-            border-radius: .5rem;
-    
-            &:hover {
-                opacity: 0.9;
-                transition: all 1s;
-            }
     
             .flag {
                 margin-left: 0.5rem;
@@ -107,6 +109,15 @@ export default {
                 height: 15px;
             }
         }
-    }
 
+        &:hover {
+            transition: all 1s;
+            .card-details{
+                display: block;
+            }
+            .poster {
+                display: none;
+            }
+        }
+    }
 </style>

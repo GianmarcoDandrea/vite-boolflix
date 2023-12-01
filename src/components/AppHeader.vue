@@ -15,9 +15,9 @@ export default {
         searchName() {
             this.store.loading = true;
             axios
-            .get("https://api.themoviedb.org/3/search/movie", {
+            .get(this.store.baseUrl + "movie/popular", {
                 params: {
-                    api_key: '80af501ae1f07a940be7e96db3c882a1',
+                    api_key: this.store.apiKey,
                     query: store.searchText,
                     language: "it-IT",
                 }
@@ -26,14 +26,13 @@ export default {
                 
                 store.filmList = [];
                 store.filmList = resp.data.results;
-                console.log(resp.data.results);
                 this.store.loading = false;
             })
 
             axios
-            .get("https://api.themoviedb.org/3/search/tv", {
+            .get(this.store.baseUrl + "tv/popular", {
                 params: {
-                    api_key: '80af501ae1f07a940be7e96db3c882a1',
+                    api_key: this.store.apiKey,
                     query: store.searchText,
                     language: "it-IT",
                 }
@@ -41,7 +40,6 @@ export default {
             .then((resp2) => {
                 store.seriesList = [];
                 store.seriesList = resp2.data.results;
-                console.log(resp2.data.results);
                 this.store.loading = false;
             })
 
