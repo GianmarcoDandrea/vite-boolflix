@@ -15,7 +15,7 @@ export default {
         searchName() {
             this.store.loading = true;
             axios
-            .get(this.store.baseUrl + "movie/popular", {
+            .get(this.store.baseUrl + "search/movie", {
                 params: {
                     api_key: this.store.apiKey,
                     query: store.searchText,
@@ -30,7 +30,7 @@ export default {
             })
 
             axios
-            .get(this.store.baseUrl + "tv/popular", {
+            .get(this.store.baseUrl + "search/movie", {
                 params: {
                     api_key: this.store.apiKey,
                     query: store.searchText,
