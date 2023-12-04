@@ -90,7 +90,7 @@ export default {
     
             <section v-else>   
                 <!-- Film Container -->
-                <section v-show="store.filmList.length > 0">
+                <section v-show="store.filmList.length > 0" class="container">
                     <h2 class="text-center text-red ">Film</h2>
                     <div class="row row-cols-5 g-3">
                         <div class="col " v-for="film in store.filmList">
@@ -100,7 +100,7 @@ export default {
                 </section>
     
                 <!-- TV Series Container -->
-                <section v-show="store.seriesList.length > 0">
+                <section v-show="store.seriesList.length > 0" class="container">
                     <h2 class="text-center text-red">Serie TV</h2>
                     <div class="row row-cols-5 g-3">
                         <div class="col" v-for="serie in store.seriesList">
