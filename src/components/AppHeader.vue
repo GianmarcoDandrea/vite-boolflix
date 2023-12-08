@@ -30,7 +30,7 @@ export default {
             })
 
             axios
-            .get(this.store.baseUrl + "search/movie", {
+            .get(this.store.baseUrl + "search/tv", {
                 params: {
                     api_key: this.store.apiKey,
                     query: store.searchText,
